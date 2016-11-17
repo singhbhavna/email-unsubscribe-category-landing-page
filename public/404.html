@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-grid@^4.2.0,o-colors@^3.3.2,o-typography@^4.1.0"
+  />
+
+  <style>
+    /* Hide any enhanced experience content when in core mode, and vice versa. */
+    
+    .core .o--if-js,
+    .enhanced .o--if-no-js {
+      display: none !important;
+    }
+    /* Add any other inline styles here */
+    
+    html {
+      background: #fff1e0;
+      color: #333;
+    }
+    
+    .box {
+      border: 1px solid #b0b0b0;
+      margin-top: 50px;
+      padding: 0 30px 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="o-colors-body-text o-grid-container">
+    <div class="o-grid-row">
+      <div data-o-grid-colspan="Mone-half center" class="box">
+        <h1 class="o-typography-subhead">Page not found</h1>
+      </div>
+    </div>
+  </div>
+  <script src="//origami-build.ft.com/v2/bundles/js?modules=o-grid@^4.2.0,o-tracking@^1.1.8"></script>
+</body>
+
+</html>
