@@ -1,0 +1,23 @@
+{
+  "name": "email-unsubscribe-category-landing-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/email-unsubscribe-category-landing-page.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/email-unsubscribe-category-landing-page/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/email-unsubscribe-category-landing-page#readme",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0"
+  }
+}
