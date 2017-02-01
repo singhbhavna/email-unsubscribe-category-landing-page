@@ -1,11 +1,19 @@
 require('dotenv').config({silent: true});
 const express = require('express');
+const exphbs = require('express-handlebars');
 const path = require('path');
 
 const app = express();
 
 // Define the port to run on
 app.set('port', process.env.PORT);
+app.engine('.hbs', exphbs({ }));
+app.set('view engine', '.hbs');
+app.set('views', path.join(__dirname, 'public'));
+
+app.get('/newsletter', (req, res, next) => {
+  res.render('newsletter', { name: req.query.name });
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 
