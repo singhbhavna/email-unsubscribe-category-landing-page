@@ -12,7 +12,7 @@ app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'public'));
 
 app.get('/newsletter', (req, res, next) => {
-  res.render('newsletter', { name: req.query.name });
+  res.render('newsletter', { name: decodeURIComponent(req.query.name) });
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
