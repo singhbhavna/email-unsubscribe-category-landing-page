@@ -2,6 +2,7 @@ require('dotenv').config({silent: true});
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const compression = require('compression');
 
 const app = express();
 
@@ -10,8 +11,14 @@ app.set('port', process.env.PORT);
 app.engine('.hbs', exphbs({ }));
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'public'));
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/myft-topic', (req, res, next) => {
+  const topic = req.query.topic ? decodeURIComponent(req.query.topic) : '';
+  res.render('myft', { topic });
+});
 
 app.get('/newsletter', (req, res, next) => {
   res.render('newsletter', { name: decodeURIComponent(req.query.name) });
