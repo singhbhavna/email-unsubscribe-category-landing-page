@@ -14,7 +14,6 @@ app.set('views', path.join(__dirname, 'public'));
 app.use(compression());
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/style', express.static(path.join(__dirname, 'public')));
 
 app.get('/myft-topic', (req, res, next) => {
   const topic = req.query.topic ? decodeURIComponent(req.query.topic) : '';
