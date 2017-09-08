@@ -18,7 +18,8 @@ app.use('/myft-topic/public/style', express.static(path.join(__dirname, '/public
 
 app.get('/myft-topic', (req, res, next) => {
   const topic = req.query.topic ? decodeURIComponent(req.query.topic) : '';
-  res.render('myft', { topic });
+  const conceptId = req.query.conceptId ? decodeURIComponent(req.query.conceptId) : '';
+  res.render('myft', { topic, conceptId });
 });
 
 app.get('/newsletter', (req, res, next) => {
