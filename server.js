@@ -2,6 +2,7 @@ require('dotenv').config({silent: true});
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const sanitize = require('sanitize-html');
 const compression = require('compression');
 
 const app = express();
@@ -17,13 +18,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/myft-topic/public/style', express.static(path.join(__dirname, '/public')));
 
 app.get('/myft-topic', (req, res, next) => {
-  const topic = req.query.topic ? decodeURIComponent(req.query.topic) : '';
-  const conceptId = req.query.conceptId ? decodeURIComponent(req.query.conceptId) : '';
+  const topic = req.query.topic ? sanitize(decodeURIComponent(req.query.topic)) : '';
+  const conceptId = req.query.conceptId ? sanitize(decodeURIComponent(req.query.conceptId)) : '';
   res.render('myft', { topic, conceptId });
 });
 
 app.get('/newsletter', (req, res, next) => {
-  res.render('newsletter', { name: decodeURIComponent(req.query.name) });
+  const name = sanitize(req.query.name || '');
+  res.render('newsletter', { name: decodeURIComponent(name) });
 });
 
 // catch 404 and forward to error handler
