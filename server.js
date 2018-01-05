@@ -17,15 +17,18 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/myft-topic/public/style', express.static(path.join(__dirname, '/public')));
 
+function sanitizeInput(input = '') {
+  return sanitize((input), { allowedTags: [], allowedAttributes: []});
+}
+
 app.get('/myft-topic', (req, res, next) => {
-  const topic = req.query.topic ? sanitize(decodeURIComponent(req.query.topic)) : '';
-  const conceptId = req.query.conceptId ? sanitize(decodeURIComponent(req.query.conceptId)) : '';
+  const topic = req.query.topic ? sanitizeInput(decodeURIComponent(req.query.topic)) : '';
+  const conceptId = req.query.conceptId ? sanitizeInput(decodeURIComponent(req.query.conceptId)) : '';
   res.render('myft', { topic, conceptId });
 });
 
 app.get('/newsletter', (req, res, next) => {
-  const name = sanitize(req.query.name || '');
-  res.render('newsletter', { name: decodeURIComponent(name) });
+  res.render('newsletter', { name: sanitizeInput(decodeURIComponent(req.query.name))});
 });
 
 // catch 404 and forward to error handler
