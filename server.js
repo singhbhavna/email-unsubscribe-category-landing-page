@@ -27,6 +27,11 @@ app.get('/myft-topic', (req, res, next) => {
   res.render('myft', { topic, conceptId });
 });
 
+app.get('/nbe-signup', (req, res, next) => {
+  const name = req.query.name ? sanitizeInput(decodeURIComponent(req.query.name)) : '';
+  res.render('nbe-signup', { name });
+});
+
 app.get('/newsletter', (req, res, next) => {
   res.render('newsletter', { name: sanitizeInput(decodeURIComponent(req.query.name))});
 });

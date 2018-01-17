@@ -1,0 +1,58 @@
+<html>
+	<head>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- build service links and scripts here -->
+		<script async type="javascript" src="https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-header,o-grid,o-buttons,o-typography"></script>
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-header,o-grid,o-buttons,o-typography" />
+
+		<!-- custom styles -->
+		<link rel="stylesheet" href="/myft-topic/public/style/style.css" />
+	</head>
+	<body>
+		
+		<header class="o-header o-header--simple" data-o-component="o-header" data-o-header--no-js="">
+			<div class="o-header__row o-header__top">
+				<div class="o-header__container">
+					<div class="o-header__top-wrapper">
+
+						<div class="o-header__top-column o-header__top-column--center">
+							<!--<div class="o-header__top-takeover"></div>-->
+							<a class="o-header__top-logo" href="https://www.ft.com" title="Go to Financial Times homepage">
+								<span class="o-header__visually-hidden">Financial Times</span>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="o-header__subbrand" data-o-header-subbrand="myFT">
+			<a class="o-header__subbrand-logo" href="https://www.ft.com/myft" title="Go to the Life&amp;Arts page">
+				<span class="o-header__visually-hidden">Life&amp;Arts</span>
+			</a>
+		</div>
+
+		
+		<div class="o-grid-container">
+			<div class="o-grid-row">
+				<div data-o-grid-colspan="full-width">
+
+					<section class="confirmation">
+						
+            {{#if name}}
+						<img class="confirmation-tick" src="https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1%3Atick?source=tick&width=200&height=200&tint=%2300757F%2C%2300757F" alt="confimation tick">
+            <h1 class="o-typography-headline">You are now subscribed to <br><span class="bold">{{name}}</span></h1>
+            {{/if}}
+
+            <a href="https://www.ft.com/newsletters" class="o-buttons o-buttons--primary o-buttons--big">Explore Newsletters</a>
+
+					</section>
+
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
