@@ -13,7 +13,7 @@
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": "^6.11.1"
+    "node": "^8.11.1"
   },
   "bugs": {
     "url": "https://github.com/Financial-Times/email-unsubscribe-category-landing-page/issues"
